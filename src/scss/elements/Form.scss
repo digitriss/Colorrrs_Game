@@ -1,0 +1,90 @@
+.container_form{
+        background-color: #28DAD4;
+        height: 500px;
+        width:100%;
+        overflow: hidden;
+}
+.wrap_form{
+    position: relative;
+        margin: 0 auto;
+        width: 350px;
+        height: 400px;
+        top: 100px;
+}
+
+.form{
+    position: absolute;
+    z-index: 100;
+    width: 350px;
+    height:350px;
+    border-radius:  30px ;
+    text-align: center;
+      background-color: #4C4660;
+      border: 4px solid #FF4571;
+    // background-color: red;
+}
+.form_logo{
+    font-size: 40px;
+    color: #fff;
+}
+
+
+.btn_login {
+    font-size: 18px;
+    margin-top:40px;
+    padding: 0 20px;
+    background-color: #FF4571;
+    width: 150px;
+    height: 50px;
+    display: inline-block;
+    cursor: pointer;
+text-align: center;
+    border: 0;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+    transition: 0.5s background;
+}
+
+.btn_login:hover {
+    background-color: #5f071c;
+}
+
+.btn_login:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+ input[type="text"],[type="password"]{
+    cursor: pointer;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 4px hsla(0, 0%, 15%, 0.59);
+    width: 80%;
+}
+
+.form_alert{
+    color: white;
+    margin-top: 20px;
+}
+.pass-wrapper {
+    position: relative;
+    display: flex;
+    margin-bottom: 14px;
+}
+
+i {
+    position: absolute;
+    top: 45%;
+    right: 16%;
+}
+
+i:hover {
+    color: #00fcb6;
+    cursor: pointer;
+}

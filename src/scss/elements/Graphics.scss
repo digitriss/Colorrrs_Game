@@ -1,0 +1,94 @@
+
+.graphic__container{
+    width: 16000px;
+}
+
+@keyframes move{
+    from {
+        left:0px;
+    }
+    to{
+        left: -2000px;
+    }
+}
+.graphic__wrap{
+position: absolute;
+animation-name: move;
+animation-duration: 250s;
+animation-timing-function: linear;
+}
+
+.waves,
+.mounts {
+    position: absolute;
+    width: 160000px;
+    left: 0;
+    bottom: 0;
+}
+
+.waves div,
+.mounts div {
+    position: absolute;
+    width: 100%;
+}
+
+.clouds {
+    position: absolute;
+    width: 16000px;
+    left: 0;
+    top: -370px;
+    height: 140px;
+    background: url(https://greghub.github.io/coloron/public/svg/clouds.svg) repeat-x;
+    background-position-x: 170px;
+    z-index: 14;
+}
+
+.top_wave {
+    background: url(https://greghub.github.io/coloron/public/svg/top_wave.png) repeat-x 0 -1px;
+    height: 35px;
+    bottom: 0;
+    z-index: 12;
+}
+
+.wave1 {
+    background: url(https://greghub.github.io/coloron/public/svg/wave1.svg) repeat-x;
+    height: 80px;
+    bottom: 0;
+    z-index: 11;
+}
+
+.wave2 {
+    background: url(https://greghub.github.io/coloron/public/svg/wave2.svg) repeat-x;
+    height: 100px;
+    bottom: 30px;
+    z-index: 10;
+}
+
+.wave3 {
+    background: url(https://greghub.github.io/coloron/public/svg/wave3.svg) repeat-x;
+    height: 100px;
+    bottom: 50px;
+    z-index: 4
+}
+
+.wave4 {
+    background: url(https://greghub.github.io/coloron/public/svg/wave4.svg) repeat-x;
+    height: 100px;
+    bottom: 70px;
+    z-index: 3;
+}
+
+.mount1 {
+    background: url(https://greghub.github.io/coloron/public/svg/mount1.svg) repeat-x;
+    height: 110px;
+    bottom: 150px;
+    z-index: 2;
+}
+
+.mount2 {
+    background: url(https://greghub.github.io/coloron/public/svg/mount2.svg) repeat-x;
+    height: 100px;
+    bottom: 150px;
+    z-index: 1;
+}
+

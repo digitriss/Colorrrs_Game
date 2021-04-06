@@ -1,0 +1,31 @@
+  .container {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100%;
+      background-color: tomato;
+      border: 1px solid black;
+      position: relative;
+  }
+
+  .intervalId {
+      color: black;
+      font-size: 20px;
+  }
+
+  .container__game {
+      position: relative;
+      display: flex;
+      top: 100px;
+      height: 400px;
+      margin:  auto;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 1000px;
+      overflow: hidden;
+         background-color: #28DAD4;
+         font-family: 'Roboto',
+         sans-serif;
+  }
+
+

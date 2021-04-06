@@ -1,0 +1,20 @@
+@import './generic/reset.scss';
+
+@import './elements/Alert.scss';
+@import './elements/Ball.scss';
+@import './elements/Bars.scss';
+@import './elements/Game.scss';
+@import './elements/Message.scss';
+@import './elements/Graphics.scss';
+@import './elements/StartGame.scss';
+@import './elements/Form.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
