@@ -1,86 +1,82 @@
 @keyframes show {
-    from {
-        width: 0;
-        height: 0;
+  from {
+    width: 0;
+    height: 0;
+  }
 
-    }
-
-    to {
-        width: 40px;
-        height: 40px;
-    }
+  to {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @keyframes move1 {
-    from {
-        top: 0
-    }
+  from {
+    top: 0;
+  }
 
-    to {
-        top: 130px;
-    }
+  to {
+    top: 130px;
+  }
 }
 
 @keyframes move2 {
-    from {
-        top: 130px
-    }
+  from {
+    top: 130px;
+  }
 
-    to {
-        top: 0;
-    }
+  to {
+    top: 0;
+  }
 }
 
-@keyframes move3{
-    from{
-        top:0px;
-    }
-    to{
-        top: 130px;
-    }
+@keyframes move3 {
+  from {
+    top: 0px;
+  }
+  to {
+    top: 130px;
+  }
 }
 .container__ball {
-    height: 180px;
-    position: relative;
-    bottom: 100px;
+  height: 180px;
+  position: relative;
+  bottom: 100px;
 }
 
 .ball {
-    border-width: 4px;
-    position: absolute;
-    left: 305px;
-    width: 40px;
-    height: 40px;
-    background-color: gray;
-    border-radius: 50%;
-    animation-name: show;
-    animation-duration: 4s;
-    z-index:17;
+  border-width: 4px;
+  position: absolute;
+  left: 305px;
+  width: 40px;
+  height: 40px;
+  background-color: gray;
+  border-radius: 50%;
+  animation-name: show;
+  animation-duration: 4s;
+  z-index: 17;
 }
 
-
 .speedBall1 {
-    animation-name: move1;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-     animation-timing-function: cubic-bezier(.5, 0.05, 1, .5); 
-    animation-duration: 1.5s;
-   
+  animation-name: move1;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+  animation-duration: 1.5s;
 }
 
 .speedBall2 {
-    animation-name: move2;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: cubic-bezier(0.05, .5, .5, 1); 
-    animation-duration: 1.2s;
+  animation-name: move2;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.05, 0.5, 0.5, 1);
+  animation-duration: 1.2s;
 }
 
 .speedBall3 {
-    animation-name: move3;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
-    animation-duration: 0.9s;
-   
+  animation-name: move3;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+  animation-duration: 0.9s;
 }

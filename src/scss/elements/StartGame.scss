@@ -1,6 +1,10 @@
 .container_start {
     background-color: #28DAD4;
-    height: 500px;
+    position: relative;
+    z-index: 100;
+    overflow: hidden;
+    height: 100vh;
+  
 }
 
 .wrap_start {
