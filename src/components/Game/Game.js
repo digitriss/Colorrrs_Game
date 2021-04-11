@@ -21,11 +21,13 @@ export const Game = () => {
   const [time, setTime] = useState(0); //interwał sprawdzający
   const [timetochange, setChangeTime] = useState(0);
 
-  // ponazywac inaczej poprzednie stany!!!
+  // ponazywac inaczej poprzednie stany!
+
+  
   useEffect(() => {
     let n = 21.5;
     console.log("currentIndex", currentIndex);
-    //console.log("currentindex", currentIndex);  //zapytac o to czemu nie moge wykonsolowac innych stanow??!!!!
+    //console.log("currentindex", currentIndex);  //zapytac o to czemu nie moge wykonsolowac innych stanow?
     const interval = setInterval(() => {
       setTime((p) => {
         console.log(p, n);
@@ -34,7 +36,6 @@ export const Game = () => {
         //   bars[1] = currentColor;
         // ball === bars[0] i ten tez
         if (p === n) {
-          //tutaj moze dac inny index, nie current
           console.log("touch ===--"); //tu sprawdzamy czy colory
           n += 3;
           setScore((y) => y + 1);

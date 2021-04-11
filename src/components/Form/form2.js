@@ -22,7 +22,9 @@ const useLocalState = (key, initial) => {
 };
 
 export const Form = () => {
-  const [form, setForm] = useLocalState("user", { name: "", password: "" });
+  // const [form, setForm] = useLocalState("user", { name: "", password: "" });
+  const [name, setName] = useState("");
+  const [password, setPassword] = useLocalState("");
   const [error, setError] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
 
@@ -33,26 +35,19 @@ export const Form = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    if (form.name.length <= 2) {
+    if (name.length <= 2) {
       setError("Nazwa musi być dłuższa niż 2 znaki");
-    } else if (form.password.length <= 4) {
+    } else if (form.pass.length <= 4) {
       setError("Hasło musi być dłuższe niż 4 znaki");
     } else {
       setError("");
-      //przekierowanie do kompoenentu startGame
+
       history.push("/game");
+
+      //  <h1>Witaj {form.name}</h1>
+      //przekierowanie do kompoenentu startGame
     }
   };
-
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    console.log(form.name.length);
-    setForm((p) => {
-      return {
-        ...p,
-        [name]: value,
-      };
-    });
   };
 
   return (
@@ -65,14 +60,13 @@ export const Form = () => {
             <form onSubmit={submitForm}>
               <br />
               <br />
-              {form.name}
               <br />
               <input
                 type="text"
                 name="name"
-                value={form.name}
+                value={name}
                 placeholder="Name"
-                onChange={onChange}
+                onChange={(e) => setName(e.target.value)}
               />
               <br />
               <br />
@@ -80,9 +74,9 @@ export const Form = () => {
                 <input
                   type={passwordShown ? "text" : "password"}
                   name="password"
-                  value={form.password}
+                  value={password}
                   placeholder="Password"
-                  onChange={onChange}
+                  onChange={(e) => setAge(e.target.value)}
                 />
                 <i onClick={togglePasswordVisiblity}>{eye}</i>
               </div>
