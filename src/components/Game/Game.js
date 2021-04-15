@@ -6,7 +6,6 @@ import { Alert } from "../Alert/Alert";
 import { Graphics } from "../Graphics/Graphics";
 import { faIgloo } from "@fortawesome/free-solid-svg-icons";
 
-// const colors = ['red', 'yellow', 'purple'];
 const colors = ["#fc5c82", "#fcd45c", "#815FF8"];
 
 export const Game = () => {
@@ -23,35 +22,21 @@ export const Game = () => {
 
   // ponazywac inaczej poprzednie stany!
 
-  
-  useEffect(() => {
-    let n = 21.5;
-    console.log("currentIndex", currentIndex);
-    //console.log("currentindex", currentIndex);  //zapytac o to czemu nie moge wykonsolowac innych stanow?
-    const interval = setInterval(() => {
-      setTime((p) => {
-        console.log(p, n);
-        //bars[currentColor] === ball  tj zły warunek
-        // if (p === n && bars[0] === ball) {     i to tez!!
-        //   bars[1] = currentColor;
-        // ball === bars[0] i ten tez
-        if (p === n) {
-          console.log("touch ===--"); //tu sprawdzamy czy colory
-          n += 3;
-          setScore((y) => y + 1);
-        }
-        return p + 0.5;
-      });
-    }, 500);
+  // useEffect(() => {
+  //   let n = 21.5;
+  //   console.log("currentIndex", currentIndex);
+  //   const interval = setInterval(() => {
+  //     setTime((p) => {
+  //       console.log(p, n);
 
-    const intervalScore = setInterval(() => {
-      setScore((p) => p + 1);
-    }, 3000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [ball]);
+  //       if (p === n) {
+  //         console.log("touch ===--"); //tu sprawdzamy czy colory
+  //         n += 3;
+  //         setScore((y) => y + 1);
+  //       }
+  //       return p + 0.5;
+  //     });
+  //   }, 500);
 
   useEffect(() => {
     let interval;
@@ -76,7 +61,6 @@ export const Game = () => {
       } else {
         setBall(colors[2]);
       }
-      console.log(ball);
     }, 2000);
 
     if (end === true) {
@@ -144,6 +128,8 @@ export const Game = () => {
       {" "}
       <div className="container">
         <div className="container__game" onClick={onClick}>
+          <div className="ex">f</div>
+          <div className="ex1">fff</div>
           <div className="intervalId">
             {" "}
             {time}
@@ -151,8 +137,14 @@ export const Game = () => {
             punkty {score}{" "}
           </div>{" "}
           {end === true && <Message score={score} />} <Alert time={time} />{" "}
-          <Ball ball={ball} ballposition={ballposition} time={time} />{" "}
-          <Bars bars={bars} time={time} /> <Graphics />
+          <Ball
+            ball={ball}
+            ballposition={ballposition}
+            time={time}
+            score={score}
+          />{" "}
+          <Bars bars={bars} time={time} />
+          <Graphics />
         </div>{" "}
       </div>{" "}
     </>
