@@ -128,8 +128,6 @@ export const Game = () => {
       {" "}
       <div className="container">
         <div className="container__game" onClick={onClick}>
-          <div className="ex">f</div>
-          <div className="ex1">fff</div>
           <div className="intervalId">
             {" "}
             {time}
