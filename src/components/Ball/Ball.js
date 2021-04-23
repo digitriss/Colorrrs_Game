@@ -2,9 +2,17 @@ import React, { useState, useEffect, useRef } from "react";
 
 const ballSpeed = ["ball speedBall1", "ball speedBall2", "ball speedBall3"];
 
-//piłka na górze ma pozycje 221px
-//piłka na dole ma 351px - 20px =331px
-export const Ball = ({ ball, ballposition, time, score }) => {
+export const Ball = ({
+  ball,
+  bars,
+  ballposition,
+  time,
+  setScore,
+  setIndex,
+  index,
+  score,
+  currentColor,
+}) => {
   const [animation, addAnimation] = useState("");
 
   const thisBall = useRef(null);
@@ -15,33 +23,17 @@ export const Ball = ({ ball, ballposition, time, score }) => {
       addAnimation("ball");
     }, 14000);
 
-    let prevValue = JSON.stringify({
-      x: 401,
-      y: 331,
-      width: 40,
-      height: 40,
-      top: 331,
-      right: 441,
-      bottom: 371,
-      left: 401,
-    });
-
     const interval = setInterval(() => {
       if (thisBall) {
-        let nextValue = JSON.stringify(
-          thisBall.current.getBoundingClientRect()
-        );
-
-        if (nextValue === prevValue) {
-          clearInterval(interval);
-
-          console.log(
-            `stopped changing in ${Date.now() - start}ms. final top:`,
-            thisBall.current.getBoundingClientRect().top
-          );
+        let nextValue = thisBall.current.getBoundingClientRect();
+        if (nextValue.bottom > 380) {
+          // && currentColor=== ball
+          setIndex((index) => index + 1);
+          console.log("currentColor", currentColor);
+          console.log("touch down!!!");
         }
       }
-    }, start);
+    }, 20);
   }, []);
 
   useEffect(() => {

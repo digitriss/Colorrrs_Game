@@ -4,39 +4,29 @@ import { Bars } from "../Bar/Bars";
 import { Message } from "../Message/Message";
 import { Alert } from "../Alert/Alert";
 import { Graphics } from "../Graphics/Graphics";
-import { faIgloo } from "@fortawesome/free-solid-svg-icons";
 
 const colors = ["#fc5c82", "#fcd45c", "#815FF8"];
 
 export const Game = () => {
   const [bars, setBars] = useState(["grey"]);
-  const [currentColor, setColor] = useState("grey");
   const [click, setClick] = useState(0);
   const [ball, setBall] = useState("#fc5c82");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [index, setIndex] = useState(0);
   const [end, setEnd] = useState(false);
   const [score, setScore] = useState(0);
   const [ballposition, setPosBall] = useState(false);
   const [time, setTime] = useState(0); //interwał sprawdzający
-  const [timetochange, setChangeTime] = useState(0);
+  const [currentColor, setCurrentColor] = useState("");
 
-  // ponazywac inaczej poprzednie stany!
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime((prevState) => prevState + 1);
+    }, 1000);
 
-  // useEffect(() => {
-  //   let n = 21.5;
-  //   console.log("currentIndex", currentIndex);
-  //   const interval = setInterval(() => {
-  //     setTime((p) => {
-  //       console.log(p, n);
-
-  //       if (p === n) {
-  //         console.log("touch ===--"); //tu sprawdzamy czy colory
-  //         n += 3;
-  //         setScore((y) => y + 1);
-  //       }
-  //       return p + 0.5;
-  //     });
-  //   }, 500);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   useEffect(() => {
     let interval;
@@ -72,25 +62,6 @@ export const Game = () => {
     };
   }, []);
 
-  //najlepiej od puktow to uzaleznić!!! kiedy ma zmieniac kolor belki
-
-  useEffect(() => {
-    setBars((p) => {
-      const nP = [...p];
-      p[currentIndex] = currentColor;
-      if (p[currentIndex] === ball) {
-        //stykanie z pilka
-        setCurrentIndex(currentIndex + 1);
-        // setScore((p) => p + 1);
-        console.log("sukces", currentIndex);
-      } else {
-        setEnd(true);
-        console.log("koniec gry");
-      }
-      return nP;
-    });
-  }, [currentColor]);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setBars((p) => [...p, "grey"]);
@@ -107,20 +78,23 @@ export const Game = () => {
 
   const onClick = () => {
     setClick((p) => p + 1);
-
-    function calc(click) {
-      const temp = click % colors.length;
-
-      if (temp == 0) {
-        return colors[colors.length - 1];
-      } else {
-        return colors[temp - 1];
-      }
+    let color = "";
+    const temp = click % colors.length;
+    if (temp == 0) {
+      color = colors[colors.length - 1];
+    } else {
+      color = colors[temp - 1];
     }
+
     // if(end===true){
     //     setClick(0);
     // }
-    setColor(calc(click));
+    setBars((p) => {
+      const nP = [...p];
+      p[index] = color;
+      return nP;
+    });
+    setCurrentColor(color);
   };
 
   return (
@@ -131,15 +105,19 @@ export const Game = () => {
           <div className="intervalId">
             {" "}
             {time}
-            timetochange {timetochange}
             punkty {score}{" "}
           </div>{" "}
           {end === true && <Message score={score} />} <Alert time={time} />{" "}
           <Ball
             ball={ball}
+            bars={bars}
             ballposition={ballposition}
             time={time}
             score={score}
+            setIndex={setIndex}
+            index={index}
+            setScore={setScore}
+            currentColor={currentColor}
           />{" "}
           <Bars bars={bars} time={time} />
           <Graphics />
