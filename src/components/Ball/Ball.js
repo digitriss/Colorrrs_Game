@@ -12,6 +12,9 @@ export const Ball = ({
   index,
   score,
   currentColor,
+  setCurrentColor,
+  setBall,
+  setEnd,
 }) => {
   const [animation, addAnimation] = useState("");
 
@@ -27,10 +30,23 @@ export const Ball = ({
       if (thisBall) {
         let nextValue = thisBall.current.getBoundingClientRect();
         if (nextValue.bottom > 380) {
-          // && currentColor=== ball
-          setIndex((index) => index + 1);
-          console.log("currentColor", currentColor);
-          console.log("touch down!!!");
+          setIndex((index) => index + 1); //zmienia zle indeks, do poprawy
+          setCurrentColor((prev) => {
+            setBall((ball) => {
+              //console.log("currentColor", prev, ball);
+              if (prev === ball) {
+                setScore((p) => p + 1);
+              }
+
+              //  else {
+              //   setEnd(true);
+              //   clearInterval(interval);
+              // }
+              return ball;
+            });
+            return prev;
+          });
+          // console.log("touch down!!!");
         }
       }
     }, 20);

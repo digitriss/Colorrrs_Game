@@ -66,10 +66,10 @@ export const Game = () => {
     const interval = setInterval(() => {
       setBars((p) => [...p, "grey"]);
     }, 2000);
-    // to jest  dore rozwiazania
-    //             if (end === true) {
-    // clearInterval(interval);
-    // }
+
+    if (end === true) {
+      clearInterval(interval);
+    }
 
     return () => {
       clearInterval(interval);
@@ -86,9 +86,9 @@ export const Game = () => {
       color = colors[temp - 1];
     }
 
-    // if(end===true){
-    //     setClick(0);
-    // }
+    if (end === true) {
+      setClick(0);
+    }
     setBars((p) => {
       const nP = [...p];
       p[index] = color;
@@ -96,6 +96,13 @@ export const Game = () => {
     });
     setCurrentColor(color);
   };
+
+  let message;
+  if (end === true) {
+    message = <Message score={score} />;
+  } else {
+    message = "";
+  }
 
   return (
     <>
@@ -107,7 +114,8 @@ export const Game = () => {
             {time}
             punkty {score}{" "}
           </div>{" "}
-          {end === true && <Message score={score} />} <Alert time={time} />{" "}
+          {message}
+          <Alert time={time} />{" "}
           <Ball
             ball={ball}
             bars={bars}
@@ -118,6 +126,9 @@ export const Game = () => {
             index={index}
             setScore={setScore}
             currentColor={currentColor}
+            setCurrentColor={setCurrentColor}
+            setBall={setBall}
+            setEnd={setEnd}
           />{" "}
           <Bars bars={bars} time={time} />
           <Graphics />

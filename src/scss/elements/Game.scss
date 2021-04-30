@@ -11,6 +11,8 @@
 .intervalId {
   color: black;
   font-size: 20px;
+  display: absolute;
+  z-index: 30;
 }
 
 .container__game {
